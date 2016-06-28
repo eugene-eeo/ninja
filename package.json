@@ -1,4 +1,6 @@
 {
+  "license": "MIT",
+  "repository": "https://github.com/eugene-eeo/ninja",
   "dependencies": {
     "cheerio": "^0.20.0",
     "get-stdin": "^5.0.1",

@@ -1,7 +1,7 @@
 ninja
 =====
 
-Simulates N-die sums (slice and dice, ha). To run the simulations
+Simulates N-dice sums (slice and dice, ha). To run the simulations
 and process the output::
 
     $ make

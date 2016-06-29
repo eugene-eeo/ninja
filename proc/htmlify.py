@@ -25,12 +25,7 @@ TEMPLATE = '''
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
 <style>
 body   {{ font-size: 20px; width: 80%; margin: auto; }}
-flex   {{
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    }}
+flex   {{ display: -webkit-flex; display: flex; flex-direction: row; flex-wrap: wrap; }}
 table  {{ border: 1px solid #000; border-collapse: collapse; border-spacing: 0; }}
 td, th {{ border: 1px solid #000; padding: 0.2em; text-align: center; }}
 .stack {{ float: left; margin: 0 1em; }}

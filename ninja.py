@@ -13,7 +13,7 @@ import docopt
 import sys
 import newlinejson as nlj
 from fractions import Fraction
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 
 
 def dice(R=None):

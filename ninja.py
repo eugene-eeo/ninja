@@ -16,22 +16,15 @@ from fractions import Fraction
 from collections import defaultdict, namedtuple
 
 
-NP = namedtuple('NP', 'n,p')
-
-
-def dice(R=None, N=6):
-    p = Fraction(1, N)
+def dice(R=None):
+    p = Fraction(1, 6)
     if R is None:
-        return {n: NP(1, p) for n in range(1, N+1)}
+        return {n: p for n in range(1, 7)}
 
-    r = defaultdict(lambda: NP(0, 0))
+    r = defaultdict(Fraction)
     for prev in R:
-        for n in range(1, N+1):
-            s = n + prev
-            r[s] = NP(
-                r[s].n + 1,
-                r[s].p + R[prev].p * p
-            )
+        for n in range(1, 7):
+            r[n + prev] += R[prev] * p
     return r
 
 
@@ -41,13 +34,12 @@ def main():
     state = None
 
     with nlj.open(sys.stdout, 'w') as dst:
-        dst.write(['N', 'sum', 'occ.', 'prob'])
+        dst.write(['N', 'sum', 'prob'])
         for n in range(1, times+1):
             state = dice(state)
-            for num, info in state.items():
-                occ, prob = info
+            for num, prob in state.items():
                 dst.write([
-                    n, num, occ, (prob.numerator, prob.denominator)
+                    n, num, (prob.numerator, prob.denominator)
                     ])
 
 

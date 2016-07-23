@@ -16,24 +16,23 @@ from fractions import Fraction
 import newlinejson as nlj
 
 
-def dist(N, p, x):
+def dist(N, P, x):
     if N == 1:
         return Fraction(1, 6)
     lower = max(N - 1, x - 6)
     upper = min(x - 1, 6 * (N - 1))
     bound = range(lower, upper + 1)
-    return Fraction(1, 6) * sum(p(i) for i in bound)
+    return Fraction(1, 6) * sum(P[i] for i in bound)
 
 
-def simulate(start, times):
+def simulate(times):
     p = None
     for N in range(1, times+1):
         P = {}
         for x in range(N, 6*N+1):
             P[x] = dist(N, p, x)
-            if N >= start:
-                yield N, x, P[x]
-        p = P.get
+            yield N, x, P[x]
+        p = P
 
 
 def main():
@@ -43,8 +42,10 @@ def main():
 
     with nlj.open(sys.stdout, 'w') as dst:
         dst.write(['N', 'sum', 'prob'])
-        for row in simulate(start, times):
+        for row in simulate(times):
             n, x, p = row
+            if n < start:
+                continue
             dst.write([n, x, [p.numerator, p.denominator]])
 
 

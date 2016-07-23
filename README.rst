@@ -4,6 +4,7 @@ ninja
 Simulates N-dice sums (slice and dice, ha). To run the simulations
 and process the output::
 
+    $ make install # first time
     $ make
 
 Generates two HTML files complete with tables of values. One contains

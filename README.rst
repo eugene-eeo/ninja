@@ -14,10 +14,10 @@ other contains the one from calculation.
 tech details
 ------------
 
- - Data from simulations are serialised into JSON-line form using
-   `NewlineJSON` Python library.
- - JSON data piped into HTML-generation script using `tablib` to
-   generate HTML tables.
- - Uses KaTeX and cheerio from `npm` to pre-render the fractions
-   and avoid crashing browser.
- - Makefile to glue all of the components together.
+- Data from simulations are serialised into JSON-line form using
+  `NewlineJSON` Python library.
+- JSON data piped into HTML-generation script using `tablib` to
+  generate HTML tables.
+- Uses KaTeX and cheerio from `npm` to pre-render the fractions
+  and avoid crashing browser.
+- Makefile to glue all of the components together.

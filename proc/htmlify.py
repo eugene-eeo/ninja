@@ -62,18 +62,17 @@ def main():
         headers = next(src)[1:]
         data = defaultdict(lambda: tablib.Dataset(headers=headers))
         for row in src:
-            N = row[0]
-            P = row[-1]
+            N, num, P = row
             data[N].append(
-                row[1:-1] + [format_frac(Fraction(*P))],
+                [num, format_frac(Fraction(*P))],
             )
 
-    table = ''.join([
+    content = ''.join([
         TABLE.format(N=N, table=D.html) for N, D in data.items()
     ])
     print(TEMPLATE.format(
         title='dice rolls ' + title,
-        content=table,
+        content=content,
         ))
 
 

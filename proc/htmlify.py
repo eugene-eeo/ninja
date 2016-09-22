@@ -22,6 +22,7 @@ TEMPLATE = '''
 <!doctype html>
 <html>
 <head>
+<title>{title}</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
 <style>
 body   {{ font-size: 20px; width: 80%; margin: auto; }}
@@ -50,7 +51,8 @@ TABLE = '''
 '''
 
 
-format_frac = lambda f: r'\frac{%d}{%d}' % (f.numerator, f.denominator)
+def format_frac(f):
+    return r'\frac{%d}{%d}' % (f.numerator, f.denominator)
 
 
 def main():

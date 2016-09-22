@@ -29,7 +29,7 @@ def dice(R=None):
 
 
 def main():
-    args  = docopt.docopt(__doc__)
+    args = docopt.docopt(__doc__)
     times = int(args['--times'])
     state = None
 

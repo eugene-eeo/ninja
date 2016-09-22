@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-const getStdin = require('get-stdin');
-const cheerio  = require('cheerio');
-const katex    = require('katex');
+var getStdin = require('get-stdin');
+var cheerio  = require('cheerio');
+var katex    = require('katex');
 
-getStdin().then(str => {
-  const $ = cheerio.load(str, {
+getStdin().then(function(str) {
+  var $ = cheerio.load(str, {
     normalizeWhitespace: true
   });
   $('tr td:last-child').each(function() {
